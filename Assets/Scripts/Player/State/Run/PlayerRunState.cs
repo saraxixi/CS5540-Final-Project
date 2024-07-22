@@ -53,6 +53,14 @@ public class PlayerRunState : PlayerStateBase
         }
         #endregion
 
+        #region Listen to Jump
+        if (playerController.inputSystem.Player.Jump.triggered)
+        {
+            playerController.SwitchState(PlayerState.JumpStart);
+            return;
+        }
+        #endregion
+
         #region Listen to RunEnd
         if (playerController.inputMoveVec2 == Vector2.zero)
         {

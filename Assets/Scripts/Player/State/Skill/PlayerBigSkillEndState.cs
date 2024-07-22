@@ -7,10 +7,13 @@ public class PlayerBigSkillEndState : PlayerStateBase
     public override void Enter()
     {
         base.Enter();
+
+        /*
         playerModel.bigSkillCamera.SetActive(false);
         CameraManager.INSTANCE.cmBrain.m_DefaultBlend = new Cinemachine.CinemachineBlendDefinition(Cinemachine.CinemachineBlendDefinition.Style.EaseInOut, 2f);
         CameraManager.INSTANCE.freeLookCamera.SetActive(true);
         CameraManager.INSTANCE.ResetFreeLookCamera();
+        */
 
         playerController.PlayAnimation("BigSkill_End");
     }

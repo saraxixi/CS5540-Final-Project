@@ -10,9 +10,9 @@ public class PlayerBigSkillStartState : PlayerStateBase
         base.Enter();
 
         // Shift Camera to BigSkill Camera
-        CameraManager.INSTANCE.cmBrain.m_DefaultBlend = new CinemachineBlendDefinition(CinemachineBlendDefinition.Style.Cut, 0f);
-        CameraManager.INSTANCE.freeLookCamera.SetActive(false);
-        playerModel.bigSkillStartCamera.SetActive(true);
+        // CameraManager.INSTANCE.cmBrain.m_DefaultBlend = new CinemachineBlendDefinition(CinemachineBlendDefinition.Style.Cut, 0f);
+        // CameraManager.INSTANCE.freeLookCamera.SetActive(false);
+        // playerModel.bigSkillStartCamera.SetActive(true);
 
         playerController.PlayAnimation("BigSkill_Start", 0f);
     }

@@ -8,8 +8,8 @@ public class PlayerBigSkillState : PlayerStateBase
     {
         base.Enter();
 
-        playerModel.bigSkillStartCamera.SetActive(false);
-        playerModel.bigSkillCamera.SetActive(true);
+        // playerModel.bigSkillStartCamera.SetActive(false);
+        // playerModel.bigSkillCamera.SetActive(true);
 
         playerController.PlayAnimation("BigSkill", 0f);
     }

@@ -44,8 +44,8 @@ public class PlayerModel : MonoBehaviour
     // Skill Config
     public SkillConfig skillConfig;
 
-    public GameObject bigSkillStartCamera;
+    // public GameObject bigSkillStartCamera;
 
-    public GameObject bigSkillCamera;
+    // public GameObject bigSkillCamera;
 
 }

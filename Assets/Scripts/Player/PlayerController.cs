@@ -74,6 +74,7 @@ public class PlayerController : SingleMonoBase<PlayerController>, IStateMachineO
             case PlayerState.NormalAttackEnd:
                 stateMachine.EnterState<PlayerNormalAttackEndState>();
                 break;
+            /*
             case PlayerState.BigSkillStart:
                 stateMachine.EnterState<PlayerBigSkillStartState>();
                 break;
@@ -83,6 +84,7 @@ public class PlayerController : SingleMonoBase<PlayerController>, IStateMachineO
             case PlayerState.BigSkillEnd:
                 stateMachine.EnterState<PlayerBigSkillEndState>();
                 break;
+            */
             case PlayerState.JumpStart:
                 stateMachine.EnterState<PlayerJumpStartState>();
                 break;

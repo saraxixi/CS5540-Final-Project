@@ -39,6 +39,14 @@ public class PlayerEvadeEndState : PlayerStateBase
         }
         #endregion
 
+        #region Listen to Jump
+        if (playerController.inputSystem.Player.Jump.triggered)
+        {
+            playerController.SwitchState(PlayerState.JumpStart);
+            return;
+        }
+        #endregion
+
         #region Animation finish or not
         if (IsAnimationEnd())
         {
