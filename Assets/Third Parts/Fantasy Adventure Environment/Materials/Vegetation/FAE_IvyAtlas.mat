@@ -129,7 +129,7 @@ Material:
     - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.184}
     - _TransmissionColor: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &5368506198666892116
+--- !u!114 &2741795958668445861
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

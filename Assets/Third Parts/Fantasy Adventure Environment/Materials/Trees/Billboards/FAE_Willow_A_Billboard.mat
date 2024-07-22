@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: FAE_Willow_A_Billboard
-  m_Shader: {fileID: -6465566751694194690, guid: 7e07cc6c21cf51b4387f5678a0a21398,
+  m_Shader: {fileID: -6465566751694194690, guid: 4bba179cc6b18fd428a78e6ff3a25e77,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -208,7 +208,7 @@ Material:
     - _Variationcolor: {r: 1, g: 0.80689657, b: 0, a: 0}
     - _WindDirection: {r: 0.93536794, g: 0, b: 0.35367614, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &1906277993332300239
+--- !u!114 &1849641906833200593
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3794071053300540011
+--- !u!114 &-7942270202216630737
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: FAE_PalmBark
-  m_Shader: {fileID: -6465566751694194690, guid: cd32417db29324f4f8f49c2a0e918511,
+  m_Shader: {fileID: -6465566751694194690, guid: 9e76c05064e710841ad687f1c616bc06,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Cliff_C_Mat
-  m_Shader: {fileID: -6465566751694194690, guid: 7f57b0c643f528f4297b72348cab9faf,
+  m_Shader: {fileID: -6465566751694194690, guid: d1bdd5780f511354e9971492b9493ead,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -99,7 +99,7 @@ Material:
     - _GlobalColor: {r: 1, g: 1, b: 1, a: 1}
     - _ObjectColor: {r: 0.86764705, g: 0.86764705, b: 0.86764705, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &1014614949530309644
+--- !u!114 &1080502204749113596
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

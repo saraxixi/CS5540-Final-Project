@@ -129,7 +129,7 @@ Material:
     - _VariationColor: {r: 1, g: 0.5, b: 0, a: 0.09803922}
     - _Variationcolor: {r: 0.44827592, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &6226525382260127064
+--- !u!114 &2649268398624445099
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
