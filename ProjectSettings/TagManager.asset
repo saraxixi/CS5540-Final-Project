@@ -4,12 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - BigSkillTargetPath
+  - Ground
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f370c76199281544b69e98c32b66965, type: 3}
+  m_Name: StandAttack1
+  m_EditorClassIdentifier: 
+  AnimationName: Attack_4Combo_1
+  ReleaseData:
+    SpawnObj:
+      Prefab: {fileID: 4150441759219905448, guid: d779e7e6b0d1eb5479375e420eab7e0a,
+        type: 3}
+      AudioClip: {fileID: 0}
+      Position: {x: 0.64, y: 0.78, z: -0.16}
+      Rotation: {x: 0, y: 0, z: -130}
+      Time: 0
+    AudioClip: {fileID: 8300000, guid: 34e60cacbaea20d43afbdbfe73113e25, type: 3}
+  AttackData:
+  - SpawnObj:
+      Prefab: {fileID: 0}
+      AudioClip: {fileID: 0}
+      Position: {x: 0, y: 0, z: 0}
+      Rotation: {x: 0, y: 0, z: 0}
+      Time: 0
+    AudioClip: {fileID: 0}
+    DamgeValue: 100
+    HardTime: 0
+    RepelVelocity: {x: 0, y: 0, z: 0}
+    RepelTime: 0
+    ScreenImpulseValue: 0
+    SkillHitEFConfig: {fileID: 11400000, guid: 480450b3d238549459847dd6a4c07437, type: 2}
