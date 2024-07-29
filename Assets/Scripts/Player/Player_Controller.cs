@@ -17,6 +17,7 @@ public class Player_Controller : MonoBehaviour,IStateMachineOwner, ISkillOwner
     [Header("配置")]
     public float gravity = -9.8f;
     public float rotateSpeed = 5;
+    public float rotateSpeedForAttack = 5;
     public float walk2RunTransition = 1;
     public float walkSpeed = 1;
     public float runSpeed = 1;
@@ -35,7 +36,7 @@ public class Player_Controller : MonoBehaviour,IStateMachineOwner, ISkillOwner
     {
         Cursor.lockState = CursorLockMode.Locked;
         Model.Init(OnFootStep, this, enemyTagList);
-        canSwitchSkill = true;
+        CanSwitchSkill = true;
         stateMachine = new StateMachine();
         stateMachine.Init(this);
         ChangeState(PlayerState.Idle); // 默认进入待机状态
@@ -76,31 +77,33 @@ public class Player_Controller : MonoBehaviour,IStateMachineOwner, ISkillOwner
     }
 
     #region Skill
-    private SkillConfig currentSkillConfig;
-    public SkillConfig CurrentSkillConfig { get => currentSkillConfig; }
+    public SkillConfig CurrentSkillConfig { get; private set; }
     private int currentHitIndex = 0;
-    private bool canSwitchSkill;
-    public bool CanSwitchSkill { get => canSwitchSkill; }
+    public bool CanSwitchSkill { get; private set; }
     public void StartAttack(SkillConfig skillConfig)
     { 
-        canSwitchSkill = false;
-        currentSkillConfig = skillConfig;
-        PlayAnimation(currentSkillConfig.AnimationName);
+        CanSwitchSkill = false;
+        CurrentSkillConfig = skillConfig;
+        currentHitIndex = 0;
+        PlayAnimation(CurrentSkillConfig.AnimationName);
 
         // Play Spawn Object
-        SpawnSkillObject(currentSkillConfig.ReleaseData.SpawnObj);
+        SpawnSkillObject(CurrentSkillConfig.ReleaseData.SpawnObj);
 
         // Play Skill Audio
-        PlayAudio(currentSkillConfig.ReleaseData.AudioClip);
+        PlayAudio(CurrentSkillConfig.ReleaseData.AudioClip);
 
     }
     public void StartSkillHit(int weaponIndex)
     {
+        Debug.Log(currentHitIndex);
+
         // Skill release audio
-        SpawnSkillObject(currentSkillConfig.AttackData[currentHitIndex - 1].SpawnObj);
+        SpawnSkillObject(CurrentSkillConfig.AttackData[currentHitIndex].SpawnObj);
+
 
         // Skill release object
-        PlayAudio(currentSkillConfig.AttackData[currentHitIndex - 1].AudioClip);
+        PlayAudio(CurrentSkillConfig.AttackData[currentHitIndex].AudioClip);
     }
 
     public void StopSkillHit(int weaponIndex)
@@ -110,12 +113,12 @@ public class Player_Controller : MonoBehaviour,IStateMachineOwner, ISkillOwner
 
     public void SkillCanSwitch()
     {
-        canSwitchSkill = true;
+        CanSwitchSkill = true;
     }
 
     public void OnSkillOver()
     { 
-        canSwitchSkill = true;
+        CanSwitchSkill = true;
     }
     #endregion
 
@@ -169,23 +172,22 @@ public class Player_Controller : MonoBehaviour,IStateMachineOwner, ISkillOwner
     }
     public void OnHit(IHurt target, Vector3 hitPosition)
     {
-        Debug.Log("OnHit called"); // Debug
         if (target == null)
         {
             Debug.LogError("Target is null");
             return;
         }
 
-        Skill_AttackData attackData = CurrentSkillConfig.AttackData[currentHitIndex - 1];
+        Skill_AttackData attackData = CurrentSkillConfig.AttackData[currentHitIndex];
         Debug.Log("Damage: " + attackData.DamgeValue); // Debug damage value
 
         if (target.Hurt(attackData.DamgeValue, this))
         {
-            StartCoroutine(DoSkillHitEF(attackData.SkillHitEFConfig.SpawnObject, hitPosition));
+            // StartCoroutine(DoSkillHitEF(attackData.SkillHitEFConfig.SpawnObject, hitPosition));
         }
         else
         {
-            StartCoroutine(DoSkillHitEF(attackData.SkillHitEFConfig.FailSpawnObject, hitPosition));
+            // StartCoroutine(DoSkillHitEF(attackData.SkillHitEFConfig.FailSpawnObject, hitPosition));
         }
     }
 

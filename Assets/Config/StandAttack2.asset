@@ -18,10 +18,11 @@ MonoBehaviour:
       Prefab: {fileID: 4150441759219905448, guid: d779e7e6b0d1eb5479375e420eab7e0a,
         type: 3}
       AudioClip: {fileID: 0}
-      Position: {x: 0.64, y: 0.78, z: -0.16}
-      Rotation: {x: 0, y: 0, z: -130}
+      Position: {x: 0.64, y: 1, z: 0}
+      Rotation: {x: 0, y: 0, z: 0}
       Time: 0
-    AudioClip: {fileID: 8300000, guid: 34e60cacbaea20d43afbdbfe73113e25, type: 3}
+    AudioClip: {fileID: 8300000, guid: 4ec30b8d40c81d549a96afa08985874b, type: 3}
+    CanRotate: 1
   AttackData:
   - SpawnObj:
       Prefab: {fileID: 0}
@@ -30,9 +31,15 @@ MonoBehaviour:
       Rotation: {x: 0, y: 0, z: 0}
       Time: 0
     AudioClip: {fileID: 0}
+    HitData:
+      DamgeValue: 0
+      HardTime: 0
+      RepelVelocity: {x: 0, y: 0, z: 0}
+      Down: 0
+      RepelTime: 0
     DamgeValue: 100
     HardTime: 0
     RepelVelocity: {x: 0, y: 0, z: 0}
     RepelTime: 0
     ScreenImpulseValue: 0
-    SkillHitEFConfig: {fileID: 11400000, guid: 480450b3d238549459847dd6a4c07437, type: 2}
+    SkillHitEFConfig: {fileID: 0}

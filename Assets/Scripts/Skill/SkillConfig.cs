@@ -22,6 +22,8 @@ public class Skill_ReleaseData
     public Skill_SpawnObj SpawnObj;
     // “Ù–ß
     public AudioClip AudioClip;
+    // Rotation
+    public bool CanRotate;
 }
 
 /// <summary>

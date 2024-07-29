@@ -34,13 +34,8 @@ public class Player_StandAttackState : PlayerStateBase
 
     private void StandAttack()
     {
-        Debug.Log(CurrentAttackIndex);
-        // TODO: Continue Attack
         CurrentAttackIndex += 1;
         player.StartAttack(player.standAttackConfig[CurrentAttackIndex]);
-
-
-
     }
 
     public override void Update()
@@ -63,6 +58,23 @@ public class Player_StandAttackState : PlayerStateBase
         if (CheckStandAttack())
         { 
             StandAttack();
+        }
+
+        // Check Rotate
+        if (player.CurrentSkillConfig.ReleaseData.CanRotate)
+        {
+            float h = Input.GetAxis("Horizontal");
+            float v = Input.GetAxis("Vertical");
+            if (h != 0 || v != 0)
+            {
+                // 处理旋转的问题
+                Vector3 input = new Vector3(h, 0, v);
+                // 获取相机的旋转值 y
+                float y = Camera.main.transform.rotation.eulerAngles.y;
+                // 让四元数和向量相乘：表示让这个向量按照这个四元数所表达的角度进行旋转后得到新的向量
+                Vector3 targetDir = Quaternion.Euler(0, y, 0) * input;
+                player.Model.transform.rotation = Quaternion.Slerp(player.Model.transform.rotation, Quaternion.LookRotation(targetDir), Time.deltaTime * player.rotateSpeedForAttack);
+            }
         }
     }
 
