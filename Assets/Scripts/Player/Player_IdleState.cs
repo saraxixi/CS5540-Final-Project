@@ -16,8 +16,8 @@ public class Player_IdleState:PlayerStateBase
             return;
         }
 
-        // 检测攻击
-        if (Input.GetMouseButtonDown(0))
+        // Check Stand Attack and Not in dialogue
+        if (Input.GetMouseButtonDown(0) && player.isInDialogue == false)
         { 
             player.ChangeState(PlayerState.StandAttack);
             return;

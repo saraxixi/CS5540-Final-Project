@@ -80,6 +80,7 @@ public class Player_Controller : MonoBehaviour,IStateMachineOwner, ISkillOwner
     public SkillConfig CurrentSkillConfig { get; private set; }
     private int currentHitIndex = 0;
     public bool CanSwitchSkill { get; private set; }
+    public bool isInDialogue = false;
     public void StartAttack(SkillConfig skillConfig)
     { 
         CanSwitchSkill = false;
