@@ -34,13 +34,11 @@ public class Player_Controller : MonoBehaviour,IStateMachineOwner, ISkillOwner
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         Model.Init(OnFootStep, this, enemyTagList);
         CanSwitchSkill = true;
         stateMachine = new StateMachine();
         stateMachine.Init(this);
         ChangeState(PlayerState.Idle); // 默认进入待机状态
-
     }
 
     private void Update()
@@ -78,9 +76,10 @@ public class Player_Controller : MonoBehaviour,IStateMachineOwner, ISkillOwner
 
     #region Skill
     public SkillConfig CurrentSkillConfig { get; private set; }
-    private int currentHitIndex = 0;
     public bool CanSwitchSkill { get; private set; }
-    public bool isInDialogue = false;
+
+    private int currentHitIndex = 0;
+
     public void StartAttack(SkillConfig skillConfig)
     { 
         CanSwitchSkill = false;

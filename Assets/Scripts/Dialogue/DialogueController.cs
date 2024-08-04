@@ -1,12 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueController : MonoBehaviour
 {
     public DialogueData_SO currentData;
     bool canTalk = false;
-    public Player_Controller player;
+    MouseManager mouseManager;
+
+    private void Awake()
+    {
+        mouseManager = FindObjectOfType<MouseManager>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,17 +23,16 @@ public class DialogueController : MonoBehaviour
     {
         if (canTalk && Input.GetKeyDown(KeyCode.F))
         {
-            Cursor.lockState = CursorLockMode.None;
-            player.isInDialogue = true;
             OpenDialogue();
         }
 
     }
 
     void OpenDialogue()
-    { 
+    {
         // Open dialogue UI
         // Pass the dialogue data to UI
+        mouseManager.UnlockMouse();
         DialogueUI.Instance.UpdateDialogueData(currentData);
         DialogueUI.Instance.UpdateMainDialogue(currentData.dialoguePieces[0]);
     }

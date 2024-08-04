@@ -20,12 +20,13 @@ public class DialogueUI : SingletonMono<DialogueUI>
     public DialogueData_SO currentData;
     int currentIndex = 0;
 
-    private Player_Controller player;
+    private MouseManager mouseManager;
 
     protected override void Awake()
     {
         base.Awake();
         nextButton.onClick.AddListener(ContinueDialogue);
+        mouseManager = FindObjectOfType<MouseManager>();
     }
 
     void ContinueDialogue()
@@ -38,7 +39,7 @@ public class DialogueUI : SingletonMono<DialogueUI>
         {
             dialoguePanel.SetActive(false);
             currentIndex = 0;
-            Cursor.lockState = CursorLockMode.Locked;
+            mouseManager.LockMouse();
         }
 
     }

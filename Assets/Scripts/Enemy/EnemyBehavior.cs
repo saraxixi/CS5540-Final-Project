@@ -12,7 +12,7 @@ public class EnemyBehavior : MonoBehaviour, IHurt
 
     void Start()
     {
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
         if (player == null)
         {
             // Find the player by tag if not assigned
@@ -36,12 +36,12 @@ public class EnemyBehavior : MonoBehaviour, IHurt
             if (distance > minDistance)
             {
                 transform.LookAt(player);
-                animator.SetInteger("animStat", 1);
+                //animator.SetInteger("animStat", 1);
                 transform.position = Vector3.MoveTowards(transform.position, player.position, step);
             }
             else
             {
-                animator.SetInteger("animStat", 5);
+                //animator.SetInteger("animStat", 5);
             }
         }
         else if (enemyHealth <= 0)
@@ -80,9 +80,12 @@ public class EnemyBehavior : MonoBehaviour, IHurt
     {
         // Play death animation or effect
         Debug.Log("Enemy died");
-        animator.SetInteger("animStat", 4);
-        DestroyObject(gameObject, 7);
-        Vector3 diePos = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
-        transform.position = diePos;
+        //animator.SetInteger("animStat", 4);
+        Destroy(gameObject);
+        // Vector3 diePos = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
+        // transform.position = diePos;
+        player.GetComponent<Player_Level>().AddExperience(50);
+
+        QuestManager.Instance.UpdateQuestProgress(this.name, 1);
     }
 }

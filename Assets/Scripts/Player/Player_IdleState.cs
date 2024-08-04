@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Player_IdleState:PlayerStateBase
 {
@@ -17,7 +18,7 @@ public class Player_IdleState:PlayerStateBase
         }
 
         // Check Stand Attack and Not in dialogue
-        if (Input.GetMouseButtonDown(0) && player.isInDialogue == false)
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         { 
             player.ChangeState(PlayerState.StandAttack);
             return;
