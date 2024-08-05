@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SlimeBehavior : MonoBehaviour
+public class SlimeBehavior : MonoBehaviour, IHurt
 {
-     private Animator animator;
+    private Animator animator;
     public Transform player; // Reference to the player's transform
     public float moveSpeed = 10f; // Speed at which the enemy moves
     public float minDistance = 5f; // Minimum distance to maintain from the player
@@ -16,7 +14,7 @@ public class SlimeBehavior : MonoBehaviour
 
     void Start()
     {
-        //animator = GetComponent<Animator>();
+        // animator = GetComponent<Animator>();
         if (player == null)
         {
             // Find the player by tag if not assigned
@@ -48,6 +46,7 @@ public class SlimeBehavior : MonoBehaviour
                 //animator.SetInteger("animStat", 5);
             }
         }
+
         if (enemyHealth <= 0)
         {
             Die();
@@ -94,7 +93,7 @@ public class SlimeBehavior : MonoBehaviour
         }
         // Vector3 diePos = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
         // transform.position = diePos;
-        player.GetComponent<Player_Level>().AddExperience(50);
+        player.GetComponent<Player_Level>().AddExperience(30);
 
         QuestManager.Instance.UpdateQuestProgress(this.name, 1);
     }

@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Enemy
   - WanderPoint
+  - Axe
+  - Item
   layers:
   - Default
   - TransparentFX

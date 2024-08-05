@@ -42,6 +42,11 @@ public class OptionUI : MonoBehaviour
                 if (QuestManager.Instance.HaveQuest(newTask.questData))
                 {
                     // Determine if the quest is already finished
+                    if (QuestManager.Instance.GetTask(newTask.questData).IsComplete)
+                    { 
+                        newTask.questData.GiveRewards();
+                        QuestManager.Instance.GetTask(newTask.questData).IsFinished = true;
+                    }
                 }
                 else
                 {
@@ -50,6 +55,7 @@ public class OptionUI : MonoBehaviour
                 }
             }
         }
+
         if (nextPieceID == "")
         {
             DialogueUI.Instance.dialoguePanel.SetActive(false);

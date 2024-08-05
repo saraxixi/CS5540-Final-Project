@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class ContainerUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public SlotHolder[] slotHolders;
 
-    // Update is called once per frame
-    void Update()
+    public void RefreshUI()
     {
-        
+        for (int i = 0; i < slotHolders.Length; i++)
+        {
+            slotHolders[i].itemUI.Index = i;
+            slotHolders[i].UpdateItem();
+        }
     }
 }

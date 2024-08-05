@@ -92,7 +92,7 @@ public class EnemyBehavior : MonoBehaviour, IHurt
         }
         // Vector3 diePos = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
         // transform.position = diePos;
-        player.GetComponent<Player_Level>().AddExperience(50);
+        player.GetComponent<Player_Level>().AddExperience(30);
 
         QuestManager.Instance.UpdateQuestProgress(this.name, 1);
     }

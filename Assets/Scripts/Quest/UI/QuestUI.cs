@@ -21,9 +21,9 @@ public class QuestUI : SingletonMono<QuestUI>
     public RectTransform requireTransform;
     public QuestRequirement requirement;
 
-    // [Header("Reward Panel")]
-    // public RectTransform rewardTransform;
-    // public ItemUI rewardUI;
+    [Header("Reward Panel")]
+    public RectTransform rewardTransform;
+    public ItemUI rewardUI;
 
     void Update()
     {
@@ -45,10 +45,10 @@ public class QuestUI : SingletonMono<QuestUI>
             Destroy(item.gameObject);
         }
 
-        //foreach (Transform item in rewardTransform)
-        //{
-        //    Destroy(item.gameObject);
-        //}
+        foreach (Transform item in rewardTransform)
+        {
+            Destroy(item.gameObject);
+        }
 
         foreach (Transform item in requireTransform)
         {
@@ -75,5 +75,11 @@ public class QuestUI : SingletonMono<QuestUI>
             var q = Instantiate(requirement, requireTransform);
             q.SetupRequirement(require.name, require.requireAmount, require.currentAmount);
         }
+    }
+
+    public void SetupRewardItem(ItemData_SO itemData, int amount)
+    {
+        var item = Instantiate(rewardUI, rewardTransform);
+        item.SetupItemUI(itemData, amount);
     }
 }

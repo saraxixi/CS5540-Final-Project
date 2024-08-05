@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum ItemType
 {
-    Useable,
+    Usable,
     Weapon,
     Armor
 }
@@ -21,6 +21,7 @@ public class ItemData_SO : ScriptableObject
     public string description = "";
     public bool stackable;
 
-    [Header("Weapon")]
-    public GameObject weaponPrefab;
+    [Header("Usable")]
+    public GameObject usablePrefab;
+    public UsableItemData_SO usableData;
 }

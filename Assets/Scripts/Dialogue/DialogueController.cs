@@ -18,7 +18,16 @@ public class DialogueController : MonoBehaviour
             canTalk = true;
         }
     }
-    
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            DialogueUI.Instance.dialoguePanel.SetActive(false);
+            canTalk = false;
+        }
+    }
+
     void Update()
     {
         if (canTalk && Input.GetKeyDown(KeyCode.F))
