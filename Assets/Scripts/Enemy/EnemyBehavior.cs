@@ -10,41 +10,43 @@ public class EnemyBehavior : MonoBehaviour, IHurt
     public float damageAmount = 20; // Damage dealt to the player upon collision
     public float enemyHealth = 100; // Health of the enemy
 
+    public GameObject lootPrefab; // Reference to the loot prefab
+
     void Start()
     {
         //animator = GetComponent<Animator>();
-        if (player == null)
-        {
-            // Find the player by tag if not assigned
-            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-            if (playerObj != null)
-            {
-                player = playerObj.transform;
-            }
-        }
+        // if (player == null)
+        // {
+        //     // Find the player by tag if not assigned
+        //     GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        //     if (playerObj != null)
+        //     {
+        //         player = playerObj.transform;
+        //     }
+        // }
     }
 
     void Update()
     {
-        if (player == null) return; // Exit if player is not assigned
+        // if (player == null) return; // Exit if player is not assigned
 
-        float step = moveSpeed * Time.deltaTime;
-        float distance = Vector3.Distance(transform.position, player.position);
+        // float step = moveSpeed * Time.deltaTime;
+        // float distance = Vector3.Distance(transform.position, player.position);
 
-        if (distance < detectionRange && enemyHealth > 0)
-        {
-            if (distance > minDistance)
-            {
-                transform.LookAt(player);
-                //animator.SetInteger("animStat", 1);
-                transform.position = Vector3.MoveTowards(transform.position, player.position, step);
-            }
-            else
-            {
-                //animator.SetInteger("animStat", 5);
-            }
-        }
-        else if (enemyHealth <= 0)
+        // if (distance < detectionRange && enemyHealth > 0)
+        // {
+        //     if (distance > minDistance)
+        //     {
+        //         transform.LookAt(player);
+        //         //animator.SetInteger("animStat", 1);
+        //         transform.position = Vector3.MoveTowards(transform.position, player.position, step);
+        //     }
+        //     else
+        //     {
+        //         //animator.SetInteger("animStat", 5);
+        //     }
+        // }
+        if (enemyHealth <= 0)
         {
             Die();
         }
@@ -82,6 +84,12 @@ public class EnemyBehavior : MonoBehaviour, IHurt
         Debug.Log("Enemy died");
         //animator.SetInteger("animStat", 4);
         Destroy(gameObject);
+        // Drop loot
+        if (lootPrefab != null)
+        {
+            Vector3 lootPos = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+            Instantiate(lootPrefab, lootPos, transform.rotation);
+        }
         // Vector3 diePos = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
         // transform.position = diePos;
         player.GetComponent<Player_Level>().AddExperience(50);
