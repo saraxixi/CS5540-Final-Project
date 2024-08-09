@@ -7,7 +7,7 @@ public class DestoryObject : MonoBehaviour
     public float destroyDuration = 3.0f;
     void Start()
     {
-        DestroyObject(gameObject, destroyDuration);
+        Destroy(gameObject, destroyDuration);
     }
 
     // Update is called once per frame

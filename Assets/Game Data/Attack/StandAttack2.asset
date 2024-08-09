@@ -37,7 +37,7 @@ MonoBehaviour:
       RepelVelocity: {x: 0, y: 0, z: 0}
       Down: 0
       RepelTime: 0
-    DamgeValue: 100
+    DamgeValue: 1
     HardTime: 0
     RepelVelocity: {x: 0, y: 0, z: 0}
     RepelTime: 0

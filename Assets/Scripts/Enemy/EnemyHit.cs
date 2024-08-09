@@ -15,7 +15,7 @@ public class EnemyHit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if (LevelManager.isGameOver)
+        // if (GameManager.isGameOver)
         // {
         //     EnemyShoot = 0;
         //     EnemyCount = 0;
@@ -32,7 +32,7 @@ public class EnemyHit : MonoBehaviour
 
     // void DestroyEnemy()
     // {
-    //     if (!LevelManager.isGameOver)
+    //     if (!GameManager.isGameOver)
     //     {
     //         Instantiate(enemyExpelled, transform.position, transform.rotation);
 
@@ -44,7 +44,7 @@ public class EnemyHit : MonoBehaviour
     //         if (EnemyShoot > 2)
     //         {
     //             Debug.Log("YOU WIN!");
-    //             FindObjectOfType<LevelManager>().LevelBeat();
+    //             FindObjectOfType<GameManager>().LevelBeat();
     //         }
     //     }
 

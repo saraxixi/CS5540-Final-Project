@@ -14,9 +14,14 @@ public enum SlotType
 
 public class SlotHolder : MonoBehaviour, IPointerClickHandler
 {
-    public Player_Health playerHealth;
     public SlotType slotType;
     public ItemUI itemUI;
+    private GameObject player;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -30,12 +35,11 @@ public class SlotHolder : MonoBehaviour, IPointerClickHandler
     {
         if (itemUI.GetItem().itemType == ItemType.Usable && itemUI.Bag.items[itemUI.Index].amount > 0)
         { 
-            //TODO: Use item
-            playerHealth = GameObject.FindObjectOfType<Player_Health>();
-            playerHealth.Heal(itemUI.GetItem().usableData.healthPoint);
+            // TODO: Use item
+            GameManager.Instance.playerState.Heal(itemUI.GetItem().usableData.healthPoint);
 
-            Player_Level playerLevel = GameObject.FindObjectOfType<Player_Level>();
-            playerLevel.AddExperience(itemUI.GetItem().usableData.experiencePoint);
+            //Player_Level playerLevel = GameObject.FindObjectOfType<Player_Level>();
+            //playerLevel.AddExperience(itemUI.GetItem().usableData.experiencePoint);
 
             itemUI.Bag.items[itemUI.Index].amount -= 1;
         }

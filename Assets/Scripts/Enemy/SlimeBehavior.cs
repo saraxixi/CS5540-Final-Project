@@ -58,10 +58,10 @@ public class SlimeBehavior : MonoBehaviour, IHurt
     {
         if (other.CompareTag("Player") && enemyHealth > 0)
         {
-            var playerHealth = other.GetComponent<Player_Health>();
-            if (playerHealth != null)
+            var characterState = other.GetComponent<CharacterState>();
+            if (characterState != null)
             {
-                playerHealth.TakeDamage(damageAmount);
+                characterState.TakeDamage((int)damageAmount, characterState);
             }
         }
     }
@@ -93,8 +93,7 @@ public class SlimeBehavior : MonoBehaviour, IHurt
         }
         // Vector3 diePos = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
         // transform.position = diePos;
-        player.GetComponent<Player_Level>().AddExperience(30);
-
+        GameManager.Instance.playerState.characterData.UpdateExp(30);
         QuestManager.Instance.UpdateQuestProgress(this.name, 1);
     }
 }

@@ -12,4 +12,9 @@ public class SingletonMono<T> : MonoBehaviour where T: SingletonMono<T>
             Instance = (T)this;
         }
     }
+
+    public static bool IsInitialized
+    {
+        get { return Instance != null; }
+    }
 }

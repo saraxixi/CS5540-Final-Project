@@ -13,8 +13,8 @@ public class Player_Controller : MonoBehaviour,IStateMachineOwner, ISkillOwner
     private StateMachine stateMachine;
 
 
-    #region 配置类型的信息
-    [Header("配置")]
+    #region Settings Info
+    [Header("Settings Info")]
     public float gravity = -9.8f;
     public float rotateSpeed = 5;
     public float rotateSpeedForAttack = 5;
@@ -24,13 +24,20 @@ public class Player_Controller : MonoBehaviour,IStateMachineOwner, ISkillOwner
     public float jumpPower = 1;
     public float moveSpeedForJump;
     public float moveSpeedForAirDown;
+
+    public CharacterState characterState;
+
     public AudioClip[] footStepAudioClips;
     public List<string> enemyTagList;
 
     public SkillConfig[] standAttackConfig;
-
     public List<SkillInfo> skillInfoList = new List<SkillInfo>();
     #endregion
+
+    void Awake()
+    { 
+        characterState = Model.GetComponent<CharacterState>();
+    }
 
     private void Start()
     {
@@ -38,6 +45,7 @@ public class Player_Controller : MonoBehaviour,IStateMachineOwner, ISkillOwner
         CanSwitchSkill = true;
         stateMachine = new StateMachine();
         stateMachine.Init(this);
+        GameManager.Instance.RegisterPlayer(characterState);
         ChangeState(PlayerState.Idle); // 默认进入待机状态
     }
 
@@ -179,9 +187,12 @@ public class Player_Controller : MonoBehaviour,IStateMachineOwner, ISkillOwner
         }
 
         Skill_AttackData attackData = CurrentSkillConfig.AttackData[currentHitIndex];
-        Debug.Log("Damage: " + attackData.DamgeValue); // Debug damage value
+        int baseDamageValue = characterState.CurrentDamage();
+        int damgeValue = (int)attackData.DamgeValue + baseDamageValue;
+        Debug.Log("DamgeValue: " + damgeValue);
 
-        if (target.Hurt(attackData.DamgeValue, this))
+
+        if (target.Hurt(damgeValue, this))
         {
             // StartCoroutine(DoSkillHitEF(attackData.SkillHitEFConfig.SpawnObject, hitPosition));
         }
@@ -191,10 +202,7 @@ public class Player_Controller : MonoBehaviour,IStateMachineOwner, ISkillOwner
         }
     }
 
-    /// <summary>
-    /// Check and enter skill state
-    /// </summary>
-    /// <returns></returns>
+    //Check and enter skill state
     public bool CheckAndEnterSkillState()
     {
         if (!CanSwitchSkill) return false;
@@ -202,7 +210,7 @@ public class Player_Controller : MonoBehaviour,IStateMachineOwner, ISkillOwner
         // Check skill cd time and check skill key down
         for (int i = 0; i < skillInfoList.Count; i++)
         {
-            Debug.Log("CheckAndEnterSkillState");
+            // Debug.Log("CheckAndEnterSkillState");
             if (skillInfoList[i].currentTime == 0 && Input.GetKeyDown(skillInfoList[i].keyCode))
             {
                 // Realse skill

@@ -109,7 +109,7 @@ public class EnemyAI : MonoBehaviour
 
      void UpdateAttackState()
     {
-        if (!LevelManager.isGameOver)
+        if (!GameManager.isGameOver)
         {
             nextDestination = player.transform.position;
         if (distanceToPlayer <= attackDistance)

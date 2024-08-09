@@ -35,7 +35,7 @@ public class Player_Level : MonoBehaviour
     {
         if (level == 2)
         {
-            FindObjectOfType<LevelManager>().NextLevel();
+            FindObjectOfType<GameManager>().NextLevel();
         }
     }
 }

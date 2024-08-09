@@ -25,10 +25,10 @@ public class HealthLootBehavior : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            var playerHealth = other.GetComponent<Player_Health>();
-            if (playerHealth != null)
+            var characterState = other.GetComponent<CharacterState>();
+            if (characterState != null)
             {
-                playerHealth.Heal(healthAmount);
+                characterState.Heal(healthAmount);
                 
                 Destroy(gameObject);
             }
