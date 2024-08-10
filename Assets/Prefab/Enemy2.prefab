@@ -264,7 +264,6 @@ GameObject:
   - component: {fileID: 1808960119407766256}
   - component: {fileID: 7930887596278638309}
   - component: {fileID: 4392700000048239188}
-  - component: {fileID: 8933560750480797159}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Enemy
@@ -331,23 +330,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8933560750480797159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1319949451608305738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cd47ae5fb47240b6aeed79cd3c91576, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  moveSpeed: 10
-  minDistance: 5
-  damageAmount: 20
-  enemyHealth: 0
 --- !u!1 &1362211486037736585
 GameObject:
   m_ObjectHideFlags: 0
