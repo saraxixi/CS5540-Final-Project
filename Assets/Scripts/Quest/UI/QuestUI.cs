@@ -29,12 +29,7 @@ public class QuestUI : SingletonMono<QuestUI>
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            isOpen = !isOpen;
-            questPanel.SetActive(isOpen);
-            questContentText.text = "";
-
-            // Show the quest panel
-            SetupQuestList();
+            OpenAndCloseUI();
         }
     }
 
@@ -81,5 +76,15 @@ public class QuestUI : SingletonMono<QuestUI>
     {
         var item = Instantiate(rewardUI, rewardTransform);
         item.SetupItemUI(itemData, amount);
+    }
+
+    public void OpenAndCloseUI()
+    {
+        isOpen = !isOpen;
+        questPanel.SetActive(isOpen);
+        questContentText.text = "";
+
+        // Show the quest panel
+        SetupQuestList();
     }
 }

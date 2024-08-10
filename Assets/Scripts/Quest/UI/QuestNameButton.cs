@@ -25,6 +25,7 @@ public class QuestNameButton : MonoBehaviour
 
         foreach (var item in currentData.rewards)
         {
+
             QuestUI.Instance.SetupRewardItem(item.itemData, item.amount);
         }
 

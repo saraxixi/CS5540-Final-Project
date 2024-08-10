@@ -553,5 +553,5 @@ MonoBehaviour:
   detectionRange: 10
   damageAmount: 20
   enemyHealth: 100
-  lootPrefab: {fileID: 1396780956966815885, guid: 9695eaedb278f9d428e902d1b076c5a7,
+  lootPrefab: {fileID: 6546250608753745374, guid: 6aac209e9b7c26040b438612633c1bac,
     type: 3}

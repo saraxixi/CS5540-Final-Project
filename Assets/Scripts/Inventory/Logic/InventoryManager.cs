@@ -41,7 +41,7 @@ public class InventoryManager : SingletonMono<InventoryManager>
     {
         if (Input.GetKeyDown(KeyCode.B))
         { 
-            OpenOrCloseUI();
+            OpenAndCloseUI();
         }
     }
 
@@ -101,7 +101,7 @@ public class InventoryManager : SingletonMono<InventoryManager>
         return actionData.items.Find(i => i.itemData == questItem);
     }
 
-    public void OpenOrCloseUI()
+    public void OpenAndCloseUI()
     {
         isOpen = !isOpen;
         bagPanel.SetActive(isOpen);

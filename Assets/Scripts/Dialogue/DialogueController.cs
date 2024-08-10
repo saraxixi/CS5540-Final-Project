@@ -16,6 +16,8 @@ public class DialogueController : MonoBehaviour
         if (other.CompareTag("Player") && currentData != null)
         {
             canTalk = true;
+            TutorialManager.Instance.tutorialPanel.SetActive(true);
+            TutorialManager.Instance.SetText("Press [F] to talk with Anna");
         }
     }
 

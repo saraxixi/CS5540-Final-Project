@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 151dade09dede7e4f9571bf0a848e51f, type: 3}
+  m_Name: Level1 Tutorial
+  m_EditorClassIdentifier: 
+  tutorialPieces:
+  - ID: 1
+    text: Welcome to "Rise". You can use WASD to move your character.
+  - ID: 2
+    text: Good, now press space to jump.
+  - ID: 3
+    text: Good job! Press the left button to attack.
+  - ID: 4
+    text: You have mastered the basics, go to find Anna, she is your first firend
+      in this world. Press [N] to close

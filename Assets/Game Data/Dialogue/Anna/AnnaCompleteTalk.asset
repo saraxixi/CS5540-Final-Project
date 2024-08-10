@@ -16,7 +16,7 @@ MonoBehaviour:
   - ID: 01
     image: {fileID: 0}
     text: Oh, you killed enough silmes. This is your rewards.
-    quest: {fileID: 11400000, guid: 13427b35a2f9cca47969cd39939691ce, type: 2}
+    quest: {fileID: 11400000, guid: e14beae2539914c21b318fabf0afe774, type: 2}
     options:
     - text: Thanks
       targetID: 

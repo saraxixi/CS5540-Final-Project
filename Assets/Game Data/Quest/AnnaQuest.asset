@@ -22,10 +22,10 @@ MonoBehaviour:
   isFinished: 0
   questRequires:
   - name: Slime
-    requireAmount: 2
+    requireAmount: 3
     currentAmount: 0
   rewards:
-  - itemData: {fileID: 11400000, guid: 0ac22b05c0c97df4ebecb1f59b644b3b, type: 2}
+  - itemData: {fileID: 11400000, guid: c630b12bec8944914af6a245f95af695, type: 2}
     amount: 5
   - itemData: {fileID: 11400000, guid: 9ef9934bddebb2647bddf6e984710032, type: 2}
     amount: 1

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 151dade09dede7e4f9571bf0a848e51f, type: 3}
+  m_Name: Level2 Tutorial
+  m_EditorClassIdentifier: 
+  tutorialPieces:
+  - ID: 1
+    text: Now your Level up, press [K] to open the skill tree.
+  - ID: 2
+    text: You can click the skill icon to check the description.
+  - ID: 3
+    text: You have 1 skill point now, choose the first skill and unlock it.
+  - ID: 4
+    text: You can use skill now, press [Q] to test your first skill, enjoy!

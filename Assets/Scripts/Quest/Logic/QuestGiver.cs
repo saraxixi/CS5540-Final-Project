@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class QuestGiver : MonoBehaviour
 {
-    DialogueController controller;
+    DialogueController dialogueController;
     QuestData_SO currentQuest;
 
     public DialogueData_SO startDialogue;
@@ -56,13 +56,13 @@ public class QuestGiver : MonoBehaviour
 
     void Awake()
     {
-        controller = GetComponent<DialogueController>();
+        dialogueController = GetComponent<DialogueController>();
     }
 
     void Start()
     {
-        controller.currentData = startDialogue;
-        currentQuest = controller.currentData.GetQuest();
+        dialogueController.currentData = startDialogue;
+        currentQuest = dialogueController.currentData.GetQuest();
     }
 
     void Update()
@@ -71,17 +71,17 @@ public class QuestGiver : MonoBehaviour
         {
             if (IsComplete)
             { 
-                controller.currentData = completeDialogue;
+                dialogueController.currentData = completeDialogue;
             }
             else
             {
-                controller.currentData = progressDialogue;
+                dialogueController.currentData = progressDialogue;
             }
         }
 
         if (IsFinished)
         { 
-            controller.currentData = finishDialogue;
+            dialogueController.currentData = finishDialogue;
         }
     }
 }

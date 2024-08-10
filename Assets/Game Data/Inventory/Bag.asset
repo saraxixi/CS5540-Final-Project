@@ -15,10 +15,10 @@ MonoBehaviour:
   items:
   - itemData: {fileID: 11400000, guid: a5fcd46fdfc52114b85155b8a0bd56b2, type: 2}
     amount: 1
-  - itemData: {fileID: 11400000, guid: 0ac22b05c0c97df4ebecb1f59b644b3b, type: 2}
-    amount: 11
-  - itemData: {fileID: 0}
-    amount: 0
+  - itemData: {fileID: 11400000, guid: c630b12bec8944914af6a245f95af695, type: 2}
+    amount: 41
+  - itemData: {fileID: 11400000, guid: 9ef9934bddebb2647bddf6e984710032, type: 2}
+    amount: 8
   - itemData: {fileID: 0}
     amount: 0
   - itemData: {fileID: 0}

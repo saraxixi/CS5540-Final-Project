@@ -15,13 +15,12 @@ public class SkillManager : SingletonMono<SkillManager>
     public Text skillName, skillLevel, skillDescription;
 
     [Header("Skill Point")]
-    [SerializeField]
     private int skillPoint;
 
     public SkillButton[] skillButtons;
 
     public Text pointText;
-    public bool isOpen;
+    private bool isOpen;
 
     void Start()
     {   
@@ -32,11 +31,9 @@ public class SkillManager : SingletonMono<SkillManager>
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            isOpen = !isOpen;
-            skillTreePanel.SetActive(isOpen);
-            skillDescriptionPanel.SetActive(isOpen);
-            DisplaySkillInfo();
+            OpenAndCloseUI();
         }
+        UpdatePointUI();
     }
 
     public void UpGradeButton()
@@ -70,7 +67,7 @@ public class SkillManager : SingletonMono<SkillManager>
         activeSkill.SkillLevel++;
         skillButtons[activeSkill.SkillID].transform.GetChild(1).GetChild(0).GetComponent<Text>().text = activeSkill.SkillLevel.ToString("00");
 
-        skillPoint--;
+        GameManager.Instance.playerState.characterData.currentSkillPoint--;
         DisplaySkillInfo();
         UpdatePointUI();
 
@@ -97,12 +94,22 @@ public class SkillManager : SingletonMono<SkillManager>
             skillName.text = activeSkill.SkillName;
             skillLevel.text = activeSkill.SkillLevel.ToString("00");
             skillDescription.text = activeSkill.SkillDescription;
+
         }
 
     }
 
     private void UpdatePointUI()
     {
+        skillPoint = GameManager.Instance.playerState.characterData.currentSkillPoint;
         pointText.text = "POINTS: " + skillPoint.ToString("00");
+    }
+
+    public void OpenAndCloseUI()
+    {
+        isOpen = !isOpen;
+        skillTreePanel.SetActive(isOpen);
+        skillDescriptionPanel.SetActive(isOpen);
+        DisplaySkillInfo();
     }
 }

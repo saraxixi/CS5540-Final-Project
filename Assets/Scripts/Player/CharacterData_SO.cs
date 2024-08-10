@@ -9,6 +9,8 @@ public class CharacterData_SO : ScriptableObject
     public int currentHealth;
     public int baseDefence;
     public int currentDefence;
+    public int currentSkillPoint;
+    public int maxSkillPoint;
 
     [Header("Kill")]
     public int killPoint;
@@ -38,6 +40,8 @@ public class CharacterData_SO : ScriptableObject
     private void LevelUp()
     {
         currentLevel = Mathf.Clamp(currentLevel + 1, 0, maxLevel);
+        currentSkillPoint = Mathf.Clamp(currentSkillPoint + 1, 0, maxSkillPoint);
+        baseDefence = (int)(baseDefence * levelMultiplier);
         currentExp -= baseExp;
         baseExp += (int)(baseExp * levelMultiplier);
         maxHealth = (int)(maxHealth * levelMultiplier);
