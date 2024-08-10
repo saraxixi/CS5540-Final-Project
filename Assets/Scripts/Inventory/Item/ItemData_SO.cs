@@ -6,7 +6,7 @@ public enum ItemType
 {
     Usable,
     Weapon,
-    Armor
+    Armor,
 }
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item Data")]
@@ -17,6 +17,7 @@ public class ItemData_SO : ScriptableObject
     public string itemName;
     public Sprite itemIcon;
     public int itemAmount;
+
     [TextArea]
     public string description = "";
     public bool stackable;
@@ -24,4 +25,5 @@ public class ItemData_SO : ScriptableObject
     [Header("Usable")]
     public GameObject usablePrefab;
     public UsableItemData_SO usableData;
+
 }

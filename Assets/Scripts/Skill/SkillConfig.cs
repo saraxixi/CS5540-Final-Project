@@ -2,19 +2,27 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(menuName ="Config/Skill")]
 public class SkillConfig : ScriptableObject
 {
-    // 技能的动画名称
+    [Header("Basic Skill Info")]
     public string AnimationName;
+    public string SkillName;
+    public int SkillID;
+    [TextArea]
+    public string SkillDescription;
+    public Sprite SkillIcon;
+    public int SkillLevel;
+    public bool IsUnlock;
+
+    public SkillConfig[] preSkills;
     public Skill_ReleaseData ReleaseData;
     public Skill_AttackData[] AttackData;
 }
 
-/// <summary>
-/// 技能释放数据
-/// </summary>
+
 [Serializable]
 public class Skill_ReleaseData
 {

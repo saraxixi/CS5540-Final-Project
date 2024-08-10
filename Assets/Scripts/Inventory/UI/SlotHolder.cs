@@ -9,6 +9,7 @@ public enum SlotType
     Weapon,
     Armor,
     Action,
+    Skill,
 }
 
 
@@ -33,16 +34,19 @@ public class SlotHolder : MonoBehaviour, IPointerClickHandler
 
     public void UseItem()
     {
-        if (itemUI.GetItem().itemType == ItemType.Usable && itemUI.Bag.items[itemUI.Index].amount > 0)
-        { 
-            // TODO: Use item
-            GameManager.Instance.playerState.Heal(itemUI.GetItem().usableData.healthPoint);
+        if (itemUI.GetItem() != null)
+        {
+            if (itemUI.GetItem().itemType == ItemType.Usable && itemUI.Bag.items[itemUI.Index].amount > 0)
+            {
+                // TODO: Use item
+                GameManager.Instance.playerState.Heal(itemUI.GetItem().usableData.healthPoint);
+                GameManager.Instance.playerState.characterData.UpdateExp(itemUI.GetItem().usableData.experiencePoint);
 
-            //Player_Level playerLevel = GameObject.FindObjectOfType<Player_Level>();
-            //playerLevel.AddExperience(itemUI.GetItem().usableData.experiencePoint);
-
-            itemUI.Bag.items[itemUI.Index].amount -= 1;
+                itemUI.Bag.items[itemUI.Index].amount -= 1;
+            }
         }
+
+
 
         UpdateItem();
     }
@@ -55,10 +59,13 @@ public class SlotHolder : MonoBehaviour, IPointerClickHandler
                 itemUI.Bag = InventoryManager.Instance.inventoryData;
                 break;
             case SlotType.Weapon:
+                itemUI.Bag = InventoryManager.Instance.equipmentData;
                 break;
             case SlotType.Armor:
+                itemUI.Bag = InventoryManager.Instance.equipmentData;
                 break;
             case SlotType.Action:
+                itemUI.Bag = InventoryManager.Instance.actionData;
                 break;
         }
 

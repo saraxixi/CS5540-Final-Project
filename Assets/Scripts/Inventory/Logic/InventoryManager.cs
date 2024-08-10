@@ -28,21 +28,20 @@ public class InventoryManager : SingletonMono<InventoryManager>
     [Header("UI Panel")]
     public GameObject bagPanel;
     public GameObject statePanel;
+
     bool isOpen = false;
     void Start()
     {
         inventoryUI.RefreshUI();
-        // actionUI.RefreshUI();
-        // equipmentUI.RefreshUI();
+        actionUI.RefreshUI();
+        equipmentUI.RefreshUI();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.B))
         { 
-            isOpen = !isOpen;
-            bagPanel.SetActive(isOpen);
-            statePanel.SetActive(isOpen);
+            OpenOrCloseUI();
         }
     }
 
@@ -100,5 +99,12 @@ public class InventoryManager : SingletonMono<InventoryManager>
     public InventoryItem QuestItemInAction(ItemData_SO questItem)
     {
         return actionData.items.Find(i => i.itemData == questItem);
+    }
+
+    public void OpenOrCloseUI()
+    {
+        isOpen = !isOpen;
+        bagPanel.SetActive(isOpen);
+        statePanel.SetActive(isOpen);
     }
 }

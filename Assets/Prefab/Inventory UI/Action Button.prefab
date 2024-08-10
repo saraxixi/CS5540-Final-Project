@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7188212304997406804}
   - component: {fileID: 3930781409779457355}
   - component: {fileID: 2799328959024611217}
+  - component: {fileID: 84346781860621755}
   m_Layer: 5
   m_Name: Action Button
   m_TagString: Untagged
@@ -134,9 +135,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdc510a5c79e56f4a819a17087f94aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: {fileID: 0}
   slotType: 3
-  itemUI: {fileID: 0}
+  itemUI: {fileID: 4982465687486630013}
+--- !u!114 &84346781860621755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4891055024871395785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f73f526adb7f56488a038a0570e90cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionKey: 49
 --- !u!1001 &39611932902231996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -149,6 +162,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Item Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033250592682690144, guid: 5cd9528c6b8dfb24eb3af18993a07554,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6468126576395166451, guid: 5cd9528c6b8dfb24eb3af18993a07554,
         type: 3}
@@ -265,6 +283,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cd9528c6b8dfb24eb3af18993a07554, type: 3}
+--- !u!114 &4982465687486630013 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5019821379578988481, guid: 5cd9528c6b8dfb24eb3af18993a07554,
+    type: 3}
+  m_PrefabInstance: {fileID: 39611932902231996}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7bdebeccbfe2c4459d92759581e9e71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6435604344448298319 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6468126576395166451, guid: 5cd9528c6b8dfb24eb3af18993a07554,
