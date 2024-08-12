@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using Cinemachine;
 
 public class GameManager : SingletonMono<GameManager>
 {
 
     public static bool isGameOver = false;
     public CharacterState playerState;
-    public Button restartButton;
-    public string nextLevel;
+    public string nextScene;
+    private CinemachineFreeLook followCamera;
 
-    // Start is called before the first frame update
+    override protected void Awake()
+    {
+        base.Awake();
+        DontDestroyOnLoad(this);
+    }
+
     void Start()
     {
         isGameOver = false;
-
-        if(restartButton != null)
-        {
-            restartButton.onClick.AddListener(RestartGame);
-        }
     }
 
     // Update is called once per frame
@@ -33,11 +33,18 @@ public class GameManager : SingletonMono<GameManager>
     public void RegisterPlayer(CharacterState player)
     { 
         playerState = player;
+        followCamera = FindObjectOfType<CinemachineFreeLook>();
+
+        if (followCamera != null)
+        { 
+            followCamera.Follow = playerState.transform.GetChild(2);
+            followCamera.LookAt = playerState.transform.GetChild(2);
+        }
     }
 
     public void NextLevel()
     {
-        SceneManager.LoadScene(nextLevel);
+        SceneManager.LoadScene(nextScene);
     }
 
     public void LevelLost()
@@ -54,6 +61,18 @@ public class GameManager : SingletonMono<GameManager>
     public void RestartGame()
     {
         LoadCurrentLevel();
+    }
+
+    public Transform GetEntrance()
+    {
+        foreach (var item in FindObjectsOfType<TransitionDestination>())
+        {
+            if (item.destinationTag == TransitionDestination.DestinationTag.ENTER)
+            { 
+                return item.transform;
+            }
+        }
+        return null;
     }
 }
 

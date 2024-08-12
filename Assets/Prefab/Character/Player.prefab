@@ -88,7 +88,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2526472983553001674}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.43963376, z: -0, w: 0.89817715}
+  m_LocalRotation: {x: 0, y: 0.43963355, z: 0, w: 0.89817727}
   m_LocalPosition: {x: -229.4, y: 100.15, z: -233.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -165,12 +165,12 @@ MonoBehaviour:
   enemyTagList:
   - Enemy
   standAttackConfig:
-  - {fileID: 11400000, guid: 732613b9c07dead4d914179f0501f258, type: 2}
-  - {fileID: 11400000, guid: e4fd9ae213dfc7b40a6d299343405042, type: 2}
-  - {fileID: 11400000, guid: 25006485207302e48a979615b2d7c3a6, type: 2}
-  - {fileID: 11400000, guid: 82ff0d5caf2482e49b9a092dae1dfe68, type: 2}
+  - {fileID: 11400000, guid: d906debbcefcf445f95075bf0fdbfd07, type: 2}
+  - {fileID: 11400000, guid: f7e37cb2d61ad42d0a7aeb9740d1052c, type: 2}
+  - {fileID: 11400000, guid: d329c1d89e89c40e9aba7d446ee89c89, type: 2}
+  - {fileID: 11400000, guid: eba56e97f3a91415cb76ead8bde36bd2, type: 2}
   skillInfoList:
-  - keyCode: 49
+  - keyCode: 113
     skillConfig: {fileID: 11400000, guid: 4165da920e45d2147878f8cb9fe3cd84, type: 2}
     cdTime: 5
     cdmMaskImage: {fileID: 0}
@@ -683,7 +683,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5cbc41ec229deb4fbe0eda24147a427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterData: {fileID: 11400000, guid: 4436b0949986ca84bb245d6a18e1c2ee, type: 2}
+  templateData: {fileID: 11400000, guid: 4436b0949986ca84bb245d6a18e1c2ee, type: 2}
+  characterData: {fileID: 0}
   attackData: {fileID: 11400000, guid: 7dd5bab76a214cd478c033320c1692dd, type: 2}
   isCritical: 0
 --- !u!4 &6753906472131439924 stripped
