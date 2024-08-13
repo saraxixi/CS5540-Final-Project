@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class EnemyAI : MonoBehaviour
 
     float distanceToPlayer;
     int currentDestinationIndex = 0;
+    NavMeshAgent agent;
 
     public FSMStates currentState;
 
@@ -37,6 +39,7 @@ public class EnemyAI : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         
         Initialize();
+        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -70,7 +73,7 @@ public class EnemyAI : MonoBehaviour
 
      void UpdatePatrolState()
     {
-        Debug.Log("Patrol State");
+        agent.stoppingDistance = 0;
         anim.SetInteger("EnemyAnimState", 1);
         if (Vector3.Distance(transform.position, nextDestination) < 1)
         {
@@ -83,15 +86,15 @@ public class EnemyAI : MonoBehaviour
 
         FaceTarget(nextDestination);
 
-        // transform.position = Vector3.MoveTowards
-        //     (transform.position, nextDestination, enemySpeed * Time.deltaTime);
+        agent.SetDestination(nextDestination);
     }
 
      void UpdateChaseState()
     {
-        Debug.Log("Chase State");
+        
         anim.SetInteger("EnemyAnimState", 2);
         nextDestination = player.transform.position;
+        agent.stoppingDistance = 0;
         if (distanceToPlayer <= attackDistance)
         {
             currentState = FSMStates.ATTACK;
@@ -103,8 +106,7 @@ public class EnemyAI : MonoBehaviour
 
         FaceTarget(nextDestination);
 
-        // transform.position = Vector3.MoveTowards
-        //     (transform.position, nextDestination, enemySpeed * Time.deltaTime);
+        agent.SetDestination(nextDestination);
     }
 
      void UpdateAttackState()
@@ -112,6 +114,7 @@ public class EnemyAI : MonoBehaviour
         if (!GameManager.isGameOver)
         {
             nextDestination = player.transform.position;
+            agent.stoppingDistance = attackDistance;
         if (distanceToPlayer <= attackDistance)
         {
             currentState = FSMStates.ATTACK;
