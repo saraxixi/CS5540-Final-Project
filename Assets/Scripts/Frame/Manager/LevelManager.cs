@@ -72,25 +72,25 @@ public class LevelManager : SingletonMono<LevelManager>
     {
         if (TutorialManager.Instance.gameObject.activeSelf)
         {
-            if (level1Index == 0 && Input.GetKeyDown(KeyCode.K))
+            if (level2Index == 0 && Input.GetKeyDown(KeyCode.K))
             {
-                level1Index++;
-                TutorialManager.Instance.NextPiece(level1Index);
+                level2Index++;
+                TutorialManager.Instance.NextPiece(level2Index);
             }
-            else if (level1Index == 1 && Input.GetMouseButtonDown(0))
+            else if (level2Index == 1 && Input.GetMouseButtonDown(0))
             {
-                level1Index++;
-                TutorialManager.Instance.NextPiece(level1Index);
+                level2Index++;
+                TutorialManager.Instance.NextPiece(level2Index);
             }
-            else if (level1Index == 2 && Input.GetMouseButtonDown(0))
+            else if (level2Index == 2 && Input.GetMouseButtonDown(0))
             {
-                level1Index++;
-                TutorialManager.Instance.NextPiece(level1Index);
+                level2Index++;
+                TutorialManager.Instance.NextPiece(level2Index);
             }
-            else if (level1Index == 3 && Input.GetKeyDown(KeyCode.Q))
+            else if (level2Index == 3 && Input.GetKeyDown(KeyCode.Q))
             {
-                level1Index++;
-                TutorialManager.Instance.NextPiece(level1Index);
+                level2Index++;
+                TutorialManager.Instance.NextPiece(level2Index);
             }
         }
     }

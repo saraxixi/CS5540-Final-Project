@@ -34,7 +34,7 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
-        wanderPoints = GameObject.FindGameObjectsWithTag("WanderPoint");
+        // wanderPoints = GameObject.FindGameObjectsWithTag("WanderPoint");
         anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         
@@ -49,6 +49,9 @@ public class EnemyAI : MonoBehaviour
         Debug.Log("Distance to player: " + distanceToPlayer);
         switch(currentState)
         {
+            case FSMStates.IDEL:
+                UpdateIdelState();
+                break;
             case FSMStates.PATROL:
                 UpdatePatrolState();
                 break;
@@ -67,11 +70,16 @@ public class EnemyAI : MonoBehaviour
 
      void Initialize()
     {
-        currentState = FSMStates.PATROL;
-        FindNextPoint();
+        currentState = FSMStates.IDEL;
+        // FindNextPoint();
     }
 
-     void UpdatePatrolState()
+    void UpdateIdelState()
+    {
+        anim.SetInteger("EnemyAnimState", 0);
+    }
+
+    void UpdatePatrolState()
     {
         agent.stoppingDistance = 0;
         anim.SetInteger("EnemyAnimState", 1);
@@ -143,25 +151,25 @@ public class EnemyAI : MonoBehaviour
 
 
       void FindNextPoint()
-    {
-        nextDestination = wanderPoints[currentDestinationIndex].transform.position;
+      {
+          nextDestination = wanderPoints[currentDestinationIndex].transform.position;
 
-        currentDestinationIndex = (currentDestinationIndex + 1) % wanderPoints.Length;
-    }
+          currentDestinationIndex = (currentDestinationIndex + 1) % wanderPoints.Length;
+      }
 
     void FaceTarget(Vector3 target)
     {
-        Vector3 direction = (target - transform.position).normalized;
-        direction.y = 0;
-        Quaternion lookRotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10);
+         Vector3 direction = (target - transform.position).normalized;
+         direction.y = 0;
+         Quaternion lookRotation = Quaternion.LookRotation(direction);
+         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10);
     }
 
      void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, chaseDistance);
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, attackDistance);
-    }
+     {
+          Gizmos.color = Color.red;
+          Gizmos.DrawWireSphere(transform.position, chaseDistance);
+          Gizmos.color = Color.blue;
+          Gizmos.DrawWireSphere(transform.position, attackDistance);
+     }
 }

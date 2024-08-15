@@ -3,5 +3,5 @@
 public interface IHurt
 {
     // bool Hurt(Skill_HitData hitData, ISkillOwner hurtSource);
-    bool Hurt(float damage, IStateMachineOwner attacker);
+    void Hurt(int damage, IStateMachineOwner attacker);
 }

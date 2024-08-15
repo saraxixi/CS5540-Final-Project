@@ -7,6 +7,9 @@ public class AttackData_SO : ScriptableObject
 {
     public int minDamage;
     public int maxDamage;
+    public int coolDown;
+    public float attackRange;
+    public float skillRange;
     public float criticalMultiplier;
     public float criticalChance;
 }

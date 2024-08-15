@@ -8,7 +8,6 @@ public class MonoManager : SingletonMono<MonoManager>
     private Action updateAction;
     private Action lateUpdateAction;
     private Action fixedUpdateAction;
-
     public void AddUpdateListener(Action action)
     {
         updateAction += action;

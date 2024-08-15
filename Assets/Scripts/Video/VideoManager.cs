@@ -17,8 +17,8 @@ public class VideoManager : MonoBehaviour
         
     }
 
-    public void EndPlay(VideoPlayer videoPlayer) 
+public void EndPlay(VideoPlayer videoPlayer) 
     { 
-        SceneController.Instance.TransitionToNextLevel();
+        SceneController.Instance.TransitionToNextLevel("Scene_1");
     }
 }

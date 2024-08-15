@@ -36,6 +36,7 @@ public class Player_Controller : MonoBehaviour,IStateMachineOwner, ISkillOwner
 
     void Awake()
     { 
+
         characterState = Model.GetComponent<CharacterState>();
     }
 
@@ -46,7 +47,7 @@ public class Player_Controller : MonoBehaviour,IStateMachineOwner, ISkillOwner
         stateMachine = new StateMachine();
         stateMachine.Init(this);
         GameManager.Instance.RegisterPlayer(characterState);
-        ChangeState(PlayerState.Idle); // 默认进入待机状态
+        ChangeState(PlayerState.Idle); 
     }
 
     private void Update()
@@ -189,17 +190,10 @@ public class Player_Controller : MonoBehaviour,IStateMachineOwner, ISkillOwner
         Skill_AttackData attackData = CurrentSkillConfig.AttackData[currentHitIndex];
         int baseDamageValue = characterState.CurrentDamage();
         int damgeValue = (int)attackData.DamgeValue + baseDamageValue;
-        Debug.Log("DamgeValue: " + damgeValue);
 
 
-        if (target.Hurt(damgeValue, this))
-        {
-            // StartCoroutine(DoSkillHitEF(attackData.SkillHitEFConfig.SpawnObject, hitPosition));
-        }
-        else
-        {
-            // StartCoroutine(DoSkillHitEF(attackData.SkillHitEFConfig.FailSpawnObject, hitPosition));
-        }
+        target.Hurt(damgeValue, this);
+
     }
 
     //Check and enter skill state

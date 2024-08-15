@@ -5,16 +5,12 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    Button newGameButton;
-    Button continueButton;
-    Button quitButton;
+    public Button newGameButton;
+    public Button continueButton;
+    public Button quitButton;
 
     private void Awake()
     {
-        newGameButton = transform.GetChild(1).GetComponent<Button>();
-        continueButton = transform.GetChild(2).GetComponent<Button>();
-        quitButton = transform.GetChild(3).GetComponent<Button>();
-
         newGameButton.onClick.AddListener(NewGame);
         continueButton.onClick.AddListener(ContinueGame);
         quitButton.onClick.AddListener(QuitGame);
@@ -23,13 +19,13 @@ public class MainMenu : MonoBehaviour
     void NewGame()
     { 
         PlayerPrefs.DeleteAll();
-        SceneController.Instance.TransitionToNextLevel();
+        SceneController.Instance.TransitionToNextLevel("Scene_StartCG");
 
     }
 
     void ContinueGame()
-    { 
-        // Change Scene and Load Data
+    {
+        SceneController.Instance.TransitionToNextLevel("Scene_1");
     }
 
     void QuitGame()

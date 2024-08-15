@@ -33,6 +33,7 @@ public class TutorialManager : SingletonMono<TutorialManager>
 
     public void SetText(string text)
     {
+        tutorialPanel.SetActive(true);
         tutorialText.text = text;
     }
 }

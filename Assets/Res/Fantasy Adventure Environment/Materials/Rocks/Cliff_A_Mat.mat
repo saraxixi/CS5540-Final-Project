@@ -8,8 +8,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Cliff_A_Mat
-  m_Shader: {fileID: 4800000, guid: 82e9a7d7b237c4d46a9d9573dd719a66, type: 3}
-  m_Parent: {fileID: 2100000, guid: a268e87f1596d5b4dad8af1669d106e5, type: 2}
+  m_Shader: {fileID: -6465566751694194690, guid: 7f57b0c643f528f4297b72348cab9faf,
+    type: 3}
+  m_Parent: {fileID: 2100000, guid: 3fb461ac7c57a6a45a721f002c1fe26d, type: 2}
   m_ModifiedSerializedProperties: 6
   m_ValidKeywords: []
   m_InvalidKeywords:

@@ -17,7 +17,7 @@ public class DialogueController : MonoBehaviour
         {
             canTalk = true;
             TutorialManager.Instance.tutorialPanel.SetActive(true);
-            TutorialManager.Instance.SetText("Press [F] to talk with Anna");
+            TutorialManager.Instance.SetText("Press [F] to talk");
         }
     }
 

@@ -24,10 +24,17 @@ public class GameManager : SingletonMono<GameManager>
         isGameOver = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (isGameOver)
+        {
+            return;
+        }
 
+        if (GameManager.Instance.playerState.currentHealth == 0)
+        {
+            LevelLost();
+        }
     }
 
     public void RegisterPlayer(CharacterState player)

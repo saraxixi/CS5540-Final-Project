@@ -17,6 +17,11 @@ public class QuestManager : SingletonMono<QuestManager>
 
     public List<QuestTask> tasks = new List<QuestTask>();
 
+    override protected void Awake()
+    {
+        base.Awake();
+        DontDestroyOnLoad(this);
+    }
 
     // When enemy die and pick up item
     public void UpdateQuestProgress(string requireName, int amount)

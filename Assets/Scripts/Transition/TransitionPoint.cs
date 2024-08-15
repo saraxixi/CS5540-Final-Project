@@ -28,6 +28,10 @@ public class TransitionPoint : MonoBehaviour
             portal.SetActive(false);
             // SceneController.Instance.TransitionToDestination(this);
         }
+        else if (Input.GetKeyDown(KeyCode.F) && canTransit && transitionType == TransitionType.DifferentScene)
+        {
+            SceneController.Instance.TransitionToDestination(this);
+        }
     }
     private void OnTriggerStay(Collider other)
     {

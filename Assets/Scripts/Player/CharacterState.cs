@@ -21,7 +21,7 @@ public class CharacterState : MonoBehaviour
         }
     }
 
-    #region Ream from Data SO
+    #region Read from Data SO
     public int maxHealth { 
         get { if (characterData != null) return characterData.maxHealth; else return 0;}
         set { characterData.maxHealth = value;}
@@ -47,17 +47,10 @@ public class CharacterState : MonoBehaviour
     #endregion
 
     #region Character Combat
-    public void TakeDamage(int attacker, CharacterState defener)
+    public void TakeDamage(CharacterState attacker, CharacterState defener)
     { 
-        int damage = Mathf.Max(attacker - defener.currentDefence, 0);
+        int damage = Mathf.Max(attacker.CurrentDamage() - defener.currentDefence, 0);
         currentHealth = Mathf.Max(currentHealth - damage, 0);
-
-        //TODO: Update UI
-        //TODO: ExpUpdate
-        //if (currentHealth <= 0)
-        //{
-        //    attacker.characterDate.UpdateExp(characterData.killPoint);
-        //}
     }
 
     public int CurrentDamage()
